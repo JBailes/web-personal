@@ -1,0 +1,11 @@
+# Vite copies public/ into dist/, which `serve -s` checks before the SPA
+# fallback. Without a real file here /robots.txt fell through to index.html and
+# answered 200 text/html — which a crawler reads as a robots.txt containing no
+# valid rules, and several checkers report as the site having none at all.
+#
+# No Sitemap: line. This is a single page; a sitemap would list the one URL a
+# crawler reaches first anyway, and pointing at one that does not exist is
+# worse than omitting the line.
+
+User-agent: *
+Allow: /

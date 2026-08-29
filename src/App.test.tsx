@@ -15,6 +15,12 @@ describe('App', () => {
     expect(avatar?.textContent).toBe('JB')
   })
 
+  it('renders Rakuen Software link with correct href', () => {
+    render(<App />)
+    const link = screen.getByRole('link', { name: /rakuen software/i })
+    expect(link).toHaveAttribute('href', 'https://rakuensoftware.com')
+  })
+
   it('renders GitHub link with correct href', () => {
     render(<App />)
     const link = screen.getByRole('link', { name: /github/i })
